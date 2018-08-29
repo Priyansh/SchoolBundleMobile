@@ -12,16 +12,20 @@ using Xamarin.Forms;
 
 namespace SchoolBundleMobile
 {
-    public partial class Home : TabbedPage
+    public partial class Home : ContentPage
     {
         private HttpClient client = new HttpClient();
 
         public Home()
         {
             InitializeComponent();
+            //CurrentPage = Children[0];
+            /*var navigationPage = new NavigationPage(new News());
+            navigationPage.Icon = "heart.png";
+            Children.Add(navigationPage);*/
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
             CallBackToRest();
@@ -55,7 +59,7 @@ namespace SchoolBundleMobile
             
             string responseAsString = await response.Content.ReadAsStringAsync();
             var lstPOCArticle = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
-            lstViewRest.ItemsSource = lstPOCArticle;
+            lstViewRest.ItemsSource = lstPOCArticle.OrderBy(s => s.DisplayOrder);
         }
 
         void ArticleRefreshing(object sender, System.EventArgs e)
@@ -64,5 +68,14 @@ namespace SchoolBundleMobile
             lstViewRest.EndRefresh();
         }
 
+        private async void LstViewRest_OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem == null)
+                return;
+            var selectedPocArticle = e.SelectedItem as POCArticle;
+            
+            await Navigation.PushAsync(new News(selectedPocArticle));
+            lstViewRest.SelectedItem = null;
+        }
     }
 }

@@ -173,4 +173,7 @@
     <BundleResource Include="Resources\pdf.png" />
     <BundleResource Include="Resources\tag.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\News.png" />
+  </ItemGroup>
 </Project>

@@ -1,43 +1,74 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SchoolBundleMobile" 
              x:Class="SchoolBundleMobile.Home"
              Title ="Home"
-             BarTextColor = "#0073AE"
-             BarBackgroundColor = "#0073AE">
+             Padding="5"
+             NavigationPage.HasNavigationBar="True">
+    <!--BarTextColor = "#FFFFFF"
+             BarBackgroundColor = "#0073AE"-->
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" BackgroundColor="#F7F7F7" HeightRequest="70">
+            <Grid BackgroundColor="#F7F7F7"
+                  ColumnSpacing="10"
+                  HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="Home.png" HorizontalOptions="Start" Margin="10, 0, 0 ,0" />
+                <Image Grid.Column="1" Grid.Row="0" Source="Alert.png" Margin="10, 0, 15, 0" />
+                <Image Grid.Column="2" Grid.Row="0" Source="News.png" Margin="10, 0, 10, 0" />
+                <Image Grid.Column="3" Grid.Row="0" Source="Calendar.png" Margin="10, 0"/>
+                <Image Grid.Column="4" Grid.Row="0" Source="Menu.png" HorizontalOptions="End" Margin="0, 0, 10, 0" />
+            </Grid>
+            
+        </StackLayout>
+        <StackLayout HeightRequest="500">
+            <ListView x:Name = "lstViewRest"
+                      HasUnevenRows = "true"
+                      SeparatorVisibility = "None"
+                      Refreshing = "ArticleRefreshing"
+                      IsPullToRefreshEnabled = "true" 
+                      ItemSelected="LstViewRest_OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView Padding="5">
+                                <Frame OutlineColor="#CCCCCC"
+                                       Padding="10">
+                                    <StackLayout>
+                                        <Label Text = "{Binding Title}" FontAttributes = "None" FontSize = "16" FontFamily = "Segoe UI" TextColor = "#0073AE" />
+                                        <Label Text = "{Binding FormattedDate}" FontAttributes = "Bold" FontSize = "11" FontFamily = "Segoe UI" TextColor = "#555555" />
+                                        <Image Source = "{Binding ImageUrl}" WidthRequest = "335" HeightRequest = "224"/>
+                                    </StackLayout>
+                                </Frame>
+                            </ContentView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        
+    </StackLayout>
+    
+        
 
-    <NavigationPage Icon = "Home.png">
+    <!--<NavigationPage Icon = "Home.png">
         <x:Arguments>
-            <ContentPage>
-                <ListView x:Name = "lstViewRest"
-                          HasUnevenRows = "true"
-                          SeparatorVisibility = "None"
-                          Refreshing = "ArticleRefreshing"
-                          IsPullToRefreshEnabled = "true" >
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <ContentView Padding="5">
-                                        <Frame OutlineColor="#CCCCCC"
-                                               Padding="10">
-                                            <StackLayout>
-                                                <Label Text = "{Binding Title}" FontAttributes = "None" FontSize = "16" FontFamily = "Segoe UI" TextColor = "#0073AE" />
-                                                <Label Text = "{Binding FormattedDate}" FontAttributes = "Bold" FontSize = "11" FontFamily = "Segoe UI" TextColor = "#555555" />
-                                                <Image Source = "{Binding ImageUrl}" WidthRequest = "335" HeightRequest = "224"/>
-                                            </StackLayout>
-                                         </Frame>
-                                </ContentView>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </ContentPage>
+            
         </x:Arguments>
 
-    </NavigationPage>
+    </NavigationPage>-->
 
-    <NavigationPage Icon = "Alert.png">
+    <!--<NavigationPage Icon = "Alert.png">
         <x:Arguments>
             <ContentPage >
                 <StackLayout Orientation = "Vertical" VerticalOptions = "EndAndExpand">
@@ -46,15 +77,15 @@
                 </StackLayout>
             </ContentPage>
         </x:Arguments>
-    </NavigationPage>
+    </NavigationPage>-->
     
-    <NavigationPage Icon = "heart.png" >
+    <!--<NavigationPage Icon = "heart.png" >
         <x:Arguments>
             <local:News/>
         </x:Arguments>
-    </NavigationPage>
+    </NavigationPage>-->
 
-    <NavigationPage Icon = "Calendar.png">
+    <!--<NavigationPage Icon = "Calendar.png">
         <x:Arguments>
             <ContentPage >
                 <StackLayout Orientation = "Vertical" VerticalOptions = "EndAndExpand">
@@ -63,6 +94,6 @@
                 </StackLayout>
             </ContentPage>
         </x:Arguments>
-    </NavigationPage>
+    </NavigationPage>-->
 
-</TabbedPage>
+</ContentPage>
