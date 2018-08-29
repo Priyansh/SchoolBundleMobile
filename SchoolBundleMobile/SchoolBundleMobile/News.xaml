@@ -41,16 +41,41 @@
                     </Frame>
                 </ContentView>
 
-                <StackLayout Orientation="Vertical">
+                <StackLayout Orientation="Vertical" x:Name="slNewsData">
                     <WebView x:Name="webView"
                          HeightRequest="800"
                          WidthRequest="800"/>
-                    <ListView HasUnevenRows="True" x:Name="lstNews" >
+                    <StackLayout Orientation="Horizontal" Margin = "15, 0, 0 ,0">
+                        <Image  Source="tag.png" HorizontalOptions="Start" WidthRequest="20" HeightRequest="18" Opacity="100" />
+                        <Label Text="Categories" TextColor="#0073AE" FontSize="14" FontFamily="Segoe UI" Opacity="100"/>
+                    </StackLayout>
+                    <BoxView Color="#E4E4E4" WidthRequest="100" HeightRequest="2"/>
+                    <StackLayout x:Name="slCategories" Margin = "15, 0, 0 ,0">
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin = "15, 20, 0 ,0" >
+                        <Image  Source="link.png" HorizontalOptions="Start" WidthRequest="16" HeightRequest="18" Opacity="100" />
+                        <Label Text="Links" TextColor="#0073AE" FontSize="14" FontFamily="Segoe UI" Opacity="100"/>
+                    </StackLayout>
+                    <BoxView Color="#E4E4E4" WidthRequest="100" HeightRequest="2"/>
+                    <StackLayout x:Name="slLinks" Margin = "15, 0, 0 ,0">
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Margin = "15, 20, 0 ,0">
+                        <Image  Source="attachment.png" HorizontalOptions="Start" WidthRequest="16" HeightRequest="18"  Opacity="100"/>
+                        <Label Text="Attachments" TextColor="#0073AE" FontSize="14" FontFamily="Segoe UI" Opacity="100"/>
+                    </StackLayout>
+                    <BoxView Color="#E4E4E4" WidthRequest="100" HeightRequest="2"/>
+                    <StackLayout x:Name="slAttachments" Margin = "15, 0, 0 ,0">
+                        
+                    </StackLayout>
+
+                    <!--<ListView HasUnevenRows="True" x:Name="lstNews" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
                                     <ViewCell.View>
-                                        <Grid ColumnSpacing="10">
+                                        <Grid ColumnSpacing="10" x:Name="itemGrid">
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="Auto"/>
                                                 <RowDefinition Height="Auto"/>
@@ -61,10 +86,7 @@
                                                 <ColumnDefinition Width="*"/>
                                                 <ColumnDefinition Width="*"/>
                                             </Grid.ColumnDefinitions>
-                                            <StackLayout x:Name="slTitle" Orientation="Horizontal" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-                                                <Image  Source="tag.png" HorizontalOptions="Start"  />
-                                                <Label Text="{Binding Title}" TextColor="#0073AE" FontSize="14" FontFamily="Segoe UI" Opacity="100"/>
-                                            </StackLayout>
+                                           
 
                                             <StackLayout Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
                                                 <Label Text="{Binding Title}" TextColor="#111111" FontSize="14" FontFamily="Segoe UI" Opacity="100"/>
@@ -78,7 +100,7 @@
                                 </ViewCell>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                    </ListView>
+                    </ListView>-->
                 </StackLayout>
                 
             </StackLayout>
