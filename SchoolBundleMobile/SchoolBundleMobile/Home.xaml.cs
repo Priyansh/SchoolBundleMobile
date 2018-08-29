@@ -23,28 +23,31 @@ namespace SchoolBundleMobile
 	    protected override async void OnAppearing()
 	    {
 	        base.OnAppearing();
+            
+	        HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
+	        requestMessage.Headers.Add("x-appid", Constants.X_APPID);
+	        requestMessage.Headers.Add("x-custid", Constants.X_CUSTID);
+	        requestMessage.Headers.Add("x-usertoken", Constants.X_USERTOKEN);
+	        requestMessage.Headers.Add("x-mvc-host", Constants.X_MVCHOST);
+	        // Send the request to the server
+	        HttpResponseMessage response = await client.SendAsync(requestMessage);
+            
+	        string responseAsString = await response.Content.ReadAsStringAsync();
+	        var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
 
-	        /*client.MaxResponseContentBufferSize = 256000;
-	        int _TimeoutSec = 90;
-	        client.Timeout = new TimeSpan(0, 0, _TimeoutSec);
-	        string _ContentType = "application/json";
-	        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue(_ContentType));
-	        var uri = new Uri("https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
-	        HttpRequestMessage msgToGet = new HttpRequestMessage(HttpMethod.Get, uri);
-            //my custom headers
-	        msgToGet.Headers.Add("X_APPID", Constants.X_APPID);
-	        msgToGet.Headers.Add("X_CUSTID", Constants.X_CUSTID);
-	        msgToGet.Headers.Add("X_USERTOKEN", Constants.X_USERTOKEN);
-	        msgToGet.Headers.Add("X_MVCHOST", Constants.X_MVCHOST);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-	        content.Headers.ContentType = new MediaTypeHeaderValue(_ContentType);
-	        msgToGet.Content = content;
-	        HttpResponseMessage response;
-	        response = client.SendAsync(msgToGet).Result;
-	        String execResult = response.ReasonPhrase; */
+            /*client.BaseAddress = new Uri("https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
 
-            var response = await client.GetAsync("https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
-	        var json = await response.Content.ReadAsStringAsync();
+	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-appid", Constants.X_APPID);
+	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-custid", Constants.X_CUSTID);
+	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-usertoken", Constants.X_USERTOKEN);
+	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-mvc-host", Constants.X_MVCHOST);
+            	        
+	        var response = await client.GetAsync(client.BaseAddress);
+            if (response.IsSuccessStatusCode)
+	        {
+	            var content = await response.Content.ReadAsStringAsync();
+	            var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(content);
+	        } */
             //var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(content);
 
         }

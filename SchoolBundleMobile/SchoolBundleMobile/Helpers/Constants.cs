@@ -7,6 +7,7 @@ namespace SchoolBundleMobile.Helpers
     public class Constants
     {
         public const string ARTICLE_SEARCH = "https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle?x-appid={0}&x-custid={1}&x-usertoken={2}&x-mvc-host={3}";
+        public const string ARTICLE_SEARCH1 = "https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle/";
 
         public const string X_APPID =
             "14,35,240,1,219,8,111,209,14,57,158,132,121,93,243,222,127,19,158,182,36,210," +
