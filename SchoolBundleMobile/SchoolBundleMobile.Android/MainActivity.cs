@@ -21,6 +21,9 @@ namespace SchoolBundleMobile.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+            Android.Support.V7.Widget.Toolbar toolbar
+                = this.FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar);
+            SetSupportActionBar(toolbar);
         }
     }
 }

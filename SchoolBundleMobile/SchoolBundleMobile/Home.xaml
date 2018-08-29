@@ -1,14 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:SchoolBundleMobile"
-             x:Class="SchoolBundleMobile.Home">
+             xmlns:local="clr-namespace:Practice" 
+             x:Class="SchoolBundleMobile.Home"
+             Title ="Home"
+             BarTextColor = "Red"
+             BarBackgroundColor = "#F7F7F7">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-    	<Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <NavigationPage Title = "Home" Icon = "Home.png">
+        <x:Arguments>
+            <ContentPage >
+                <ScrollView>
+                    <Grid RowSpacing = "10" ColumnSpacing = "10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto"/>
+                            <RowDefinition Height = "Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width = "Auto" />
+                            <ColumnDefinition Width = "Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row = "0" Grid.Column = "0" Text="Label1" BackgroundColor = "Silver" />
+                        <Label Grid.Row = "0" Grid.Column = "1" Grid.ColumnSpan = "2" Text = "Label2" BackgroundColor = "Silver" />
+                        <Label Grid.Row = "1" Grid.Column = "0" Text="Label3" BackgroundColor = "Silver" />
+                        <Label Grid.Row = "1" Grid.Column = "1" Text="Label4" BackgroundColor = "Silver" />
+                        <Button Grid.Row = "1" Grid.Column = "2" Text="CLICK ME" BackgroundColor = "Purple" />
+                    </Grid>
 
-</ContentPage>
+                </ScrollView>
+            </ContentPage>
+        </x:Arguments>
+
+    </NavigationPage>
+
+    <NavigationPage Title = "About" Icon = "Alert.png">
+        <x:Arguments>
+            <ContentPage >
+                <StackLayout Orientation = "Vertical" VerticalOptions = "EndAndExpand">
+                    <Button Text = "Next Page" HorizontalOptions = "FillAndExpand" />
+                    <Button Text = "Next Page1" HorizontalOptions = "FillAndExpand" />
+                </StackLayout>
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title = "About" Icon = "Calendar.png">
+        <x:Arguments>
+            <ContentPage >
+                <StackLayout Orientation = "Vertical" VerticalOptions = "EndAndExpand">
+                    <Button Text = "Next Page" HorizontalOptions = "FillAndExpand" />
+                    <Button Text = "Next Page1" HorizontalOptions = "FillAndExpand" />
+                </StackLayout>
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+
+    <!--<NavigationPage Title = "External" Icon = "heart.png" >
+        <x:Arguments>
+            <local:PageTest/>
+        </x:Arguments>
+    </NavigationPage> -->
+
+
+</TabbedPage>

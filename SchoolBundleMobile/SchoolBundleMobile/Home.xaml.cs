@@ -12,7 +12,7 @@ using Xamarin.Forms;
 
 namespace SchoolBundleMobile
 {
-	public partial class Home : ContentPage
+	public partial class Home : TabbedPage
 	{
 	    private HttpClient client = new HttpClient();
         public Home()
@@ -33,21 +33,21 @@ namespace SchoolBundleMobile
 	        HttpResponseMessage response = await client.SendAsync(requestMessage);
             
 	        string responseAsString = await response.Content.ReadAsStringAsync();
-	        var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
+	        var lstPOCArticle = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
 
             /*client.BaseAddress = new Uri("https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
 
-	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-appid", Constants.X_APPID);
-	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-custid", Constants.X_CUSTID);
-	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-usertoken", Constants.X_USERTOKEN);
-	        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-mvc-host", Constants.X_MVCHOST);
-            	        
-	        var response = await client.GetAsync(client.BaseAddress);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-appid", Constants.X_APPID);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-custid", Constants.X_CUSTID);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-usertoken", Constants.X_USERTOKEN);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("x-mvc-host", Constants.X_MVCHOST);
+                        
+            var response = await client.GetAsync(client.BaseAddress);
             if (response.IsSuccessStatusCode)
-	        {
-	            var content = await response.Content.ReadAsStringAsync();
-	            var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(content);
-	        } */
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(content);
+            } */
             //var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(content);
 
         }
