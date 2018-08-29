@@ -14,5 +14,10 @@
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
+<ItemGroup>
+  <EmbeddedResource Update="Login.xaml">
+    <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+  </EmbeddedResource>
+</ItemGroup>
     
 </Project>

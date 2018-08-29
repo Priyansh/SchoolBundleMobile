@@ -23,11 +23,11 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Grid.Row="0" Source="Home.png" HorizontalOptions="Start" Margin="10, 0, 0 ,0" />
-                <Image Grid.Column="1" Grid.Row="0" Source="Alert.png" Margin="10, 0, 15, 0" />
-                <Image Grid.Column="2" Grid.Row="0" Source="News.png" Margin="10, 0, 10, 0" />
-                <Image Grid.Column="3" Grid.Row="0" Source="Calendar.png" Margin="10, 0"/>
-                <Image Grid.Column="4" Grid.Row="0" Source="Menu.png" HorizontalOptions="End" Margin="0, 0, 10, 0" />
+                <Image Grid.Column="0" Grid.Row="0" Source="Home.png" HorizontalOptions="Start" Margin="10, 0, 0 ,0" Opacity="100" />
+                <Image Grid.Column="1" Grid.Row="0" Source="Alert.png" Margin="10, 0, 15, 0" Opacity="100"/>
+                <Image Grid.Column="2" Grid.Row="0" Source="News1.png" Margin="10, 0, 10, 0" Opacity="100"/>
+                <Image Grid.Column="3" Grid.Row="0" Source="Calendar.png" Margin="10, 0" Opacity="100"/>
+                <Image Grid.Column="4" Grid.Row="0" Source="Menu.png" HorizontalOptions="End" Margin="0, 0, 10, 0" Opacity="100" />
             </Grid>
             
         </StackLayout>

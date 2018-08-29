@@ -11,7 +11,7 @@ namespace SchoolBundleMobile
 		{
 			InitializeComponent();
 
-			MainPage = new NavigationPage(new Home());
+			MainPage = new NavigationPage(new Login());
 		}
 
 		protected override void OnStart ()

@@ -176,4 +176,22 @@
   <ItemGroup>
     <BundleResource Include="Resources\News.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Splash%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Splash%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\flower.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\News1.png" />
+  </ItemGroup>
 </Project>

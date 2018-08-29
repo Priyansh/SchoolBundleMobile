@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SchoolBundleMobile.Login"
+             BackgroundImage="Splash.png"
+             Padding="0, 10, 0, 0">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0, 65, 0, 0">
+            <Image Source="flower.png" WidthRequest="40.78" HeightRequest="40.6" Opacity="100"/>
+            <Label Text="SchoolBundle" TextColor="#FFFFFF" FontFamily="Segoe UI" FontSize="33" Opacity="100"/>
+        </StackLayout>
+        <Button Text="Login" 
+                BackgroundColor="#381C60"
+                TextColor="#FFFFFF"
+                WidthRequest="300" HeightRequest="50"
+                VerticalOptions="CenterAndExpand" HorizontalOptions="Center"
+                Margin="0, 70, 0, 0"
+                Clicked="Button_OnClicked"/>
+        <Label Text="By tapping 'Log In' you agree to our" 
+               TextColor="#FFFFFF" FontFamily="Segoe UI" FontSize="12"
+               HorizontalOptions="Center" VerticalOptions="End" />
+        <Label Text="Terms of Service and Privacy Policy." 
+               TextColor="#FFFFFF" FontFamily="Segoe UI" FontSize="12"
+               HorizontalOptions="Center" VerticalOptions="End"
+               Margin="0, 0, 0, 30"/>
+         
+    </StackLayout>
+    
+</ContentPage>

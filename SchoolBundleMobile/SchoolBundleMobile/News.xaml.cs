@@ -52,7 +52,6 @@ namespace SchoolBundleMobile
             {
                 foreach (var item in newsfeedcategories)
                 {
-                    //< Label Text = "{Binding Title}" TextColor = "#111111" FontSize = "14" FontFamily = "Segoe UI" Opacity = "100" />
                     var label = new Label
                     {
                         Text = item.CategoryName,
@@ -93,7 +92,6 @@ namespace SchoolBundleMobile
             {
                 foreach (var item in attachments)
                 {
-                    //<Image  Source="attachment.png" HorizontalOptions="Start" WidthRequest="16" HeightRequest="18"  Opacity="100"/>
                     //Create horizonal stack
                     var stackLayout = new StackLayout
                     {
