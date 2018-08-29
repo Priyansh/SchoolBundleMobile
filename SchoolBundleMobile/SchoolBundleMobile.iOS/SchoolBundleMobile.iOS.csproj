@@ -27,6 +27,7 @@
     <MtouchArch>x86_64</MtouchArch>
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
+    <CodesignKey>iPhone Developer</CodesignKey>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -158,8 +159,18 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\SchoolBundleMobile\SchoolBundleMobile.csproj">
-      <Project>{7F8ECE9C-E37B-482B-96F7-12B501204850}</Project>
+      <Project>{B62F6685-A6AB-4A89-AB76-DF3032057A53}</Project>
       <Name>SchoolBundleMobile</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Alert.png" />
+    <BundleResource Include="Resources\attachment.png" />
+    <BundleResource Include="Resources\Calendar.png" />
+    <BundleResource Include="Resources\Home.png" />
+    <BundleResource Include="Resources\link.png" />
+    <BundleResource Include="Resources\Menu.png" />
+    <BundleResource Include="Resources\pdf.png" />
+    <BundleResource Include="Resources\tag.png" />
   </ItemGroup>
 </Project>

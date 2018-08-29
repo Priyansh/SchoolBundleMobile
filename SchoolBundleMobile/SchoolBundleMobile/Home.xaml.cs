@@ -12,28 +12,30 @@ using Xamarin.Forms;
 
 namespace SchoolBundleMobile
 {
-	public partial class Home : TabbedPage
-	{
-	    private HttpClient client = new HttpClient();
-        public Home()
-		{
-			InitializeComponent();
-		}
+    public partial class Home : TabbedPage
+    {
+        private HttpClient client = new HttpClient();
 
-	    protected override async void OnAppearing()
-	    {
-	        base.OnAppearing();
+        public Home()
+        {
+            InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
+            requestMessage.Headers.Add("x-appid", Constants.X_APPID);
+            requestMessage.Headers.Add("x-custid", Constants.X_CUSTID);
+            requestMessage.Headers.Add("x-usertoken", Constants.X_USERTOKEN);
+            requestMessage.Headers.Add("x-mvc-host", Constants.X_MVCHOST);
+            //Send the request to the server
             
-	        HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
-	        requestMessage.Headers.Add("x-appid", Constants.X_APPID);
-	        requestMessage.Headers.Add("x-custid", Constants.X_CUSTID);
-	        requestMessage.Headers.Add("x-usertoken", Constants.X_USERTOKEN);
-	        requestMessage.Headers.Add("x-mvc-host", Constants.X_MVCHOST);
-	        // Send the request to the server
-	        HttpResponseMessage response = await client.SendAsync(requestMessage);
+            HttpResponseMessage response = await client.SendAsync(requestMessage);
             
-	        string responseAsString = await response.Content.ReadAsStringAsync();
-	        var lstPOCArticle = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
+            string responseAsString = await response.Content.ReadAsStringAsync();
+            var lstPOCArticle = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
+            lstViewRest.ItemsSource = lstPOCArticle;
 
             /*client.BaseAddress = new Uri("https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
 
@@ -48,8 +50,29 @@ namespace SchoolBundleMobile
                 var content = await response.Content.ReadAsStringAsync();
                 var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(content);
             } */
-            //var jsonData = JsonConvert.DeserializeObject<List<POCArticle>>(content);
-
+            
         }
-	}
+
+        async void CallBackToRest()
+        {
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
+            requestMessage.Headers.Add("x-appid", Constants.X_APPID);
+            requestMessage.Headers.Add("x-custid", Constants.X_CUSTID);
+            requestMessage.Headers.Add("x-usertoken", Constants.X_USERTOKEN);
+            requestMessage.Headers.Add("x-mvc-host", Constants.X_MVCHOST);
+            //Send the request to the server
+            
+            HttpResponseMessage response = await client.SendAsync(requestMessage);
+            
+            string responseAsString = await response.Content.ReadAsStringAsync();
+            var lstPOCArticle = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
+            lstViewRest.ItemsSource = lstPOCArticle;
+        }
+
+        private async void ArticleRefreshing()
+        {
+            CallBackToRest();
+            lstViewRest.EndRefresh();
+        }
+    }
 }

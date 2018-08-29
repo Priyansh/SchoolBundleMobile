@@ -11,6 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="test.xaml.cs" />
+    <Compile Remove="Home.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Home.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Home11.xaml.cs">
+      <DependentUpon>Home.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Home.xaml.cs">
       <DependentUpon>Home.xaml</DependentUpon>
     </Compile>

@@ -1,39 +1,42 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Practice" 
              x:Class="SchoolBundleMobile.Home"
              Title ="Home"
-             BarTextColor = "Red"
+             BarTextColor = "#0073AE"
              BarBackgroundColor = "#F7F7F7">
 
-    <NavigationPage Title = "Home" Icon = "Home.png">
+    <NavigationPage Icon = "Home.png">
         <x:Arguments>
-            <ContentPage >
-                <ScrollView>
-                    <Grid RowSpacing = "10" ColumnSpacing = "10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height = "Auto"/>
-                            <RowDefinition Height = "Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width = "Auto" />
-                            <ColumnDefinition Width = "Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Row = "0" Grid.Column = "0" Text="Label1" BackgroundColor = "Silver" />
-                        <Label Grid.Row = "0" Grid.Column = "1" Grid.ColumnSpan = "2" Text = "Label2" BackgroundColor = "Silver" />
-                        <Label Grid.Row = "1" Grid.Column = "0" Text="Label3" BackgroundColor = "Silver" />
-                        <Label Grid.Row = "1" Grid.Column = "1" Text="Label4" BackgroundColor = "Silver" />
-                        <Button Grid.Row = "1" Grid.Column = "2" Text="CLICK ME" BackgroundColor = "Purple" />
-                    </Grid>
-
-                </ScrollView>
+            <ContentPage>
+                <ListView x:Name = "lstViewRest"
+                          HasUnevenRows = "true"
+                          SeparatorVisibility = "None"
+                          IsPullToRefreshEnabled = "true" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ContentView Padding="5">
+                                        <Frame OutlineColor="#CCCCCC"
+                                               Padding="10">
+                                            <StackLayout>
+                                                <Label Text = "{Binding Title}" FontAttributes = "None" FontSize = "16" FontFamily = "Segoe UI" TextColor = "#0073AE" />
+                                                <Label Text = "{Binding FormattedDate}" FontAttributes = "Bold" FontSize = "11" FontFamily = "Segoe UI" TextColor = "#555555" />
+                                                <Image Source = "{Binding ImageUrl}" WidthRequest = "335" HeightRequest = "224"/>
+                                            </StackLayout>
+                                         </Frame>
+                                </ContentView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </ContentPage>
         </x:Arguments>
 
     </NavigationPage>
 
-    <NavigationPage Title = "About" Icon = "Alert.png">
+    <NavigationPage Icon = "Alert.png">
         <x:Arguments>
             <ContentPage >
                 <StackLayout Orientation = "Vertical" VerticalOptions = "EndAndExpand">
@@ -44,7 +47,7 @@
         </x:Arguments>
     </NavigationPage>
 
-    <NavigationPage Title = "About" Icon = "Calendar.png">
+    <NavigationPage Icon = "Calendar.png">
         <x:Arguments>
             <ContentPage >
                 <StackLayout Orientation = "Vertical" VerticalOptions = "EndAndExpand">

@@ -18,6 +18,8 @@ namespace SchoolBundleMobile.Models
 
         public DateTime DateCreated { get; set; }
 
+        public string FormattedDate => DateCreated.ToString("ddd, MMM dd, yyyy");
+
         public IList<Newsfeedcategory> Newsfeedcategories { get; set; }
 
         public IEnumerable<Link> Links { get; set; }
