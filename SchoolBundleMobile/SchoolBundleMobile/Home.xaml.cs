@@ -24,18 +24,7 @@ namespace SchoolBundleMobile
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
-            requestMessage.Headers.Add("x-appid", Constants.X_APPID);
-            requestMessage.Headers.Add("x-custid", Constants.X_CUSTID);
-            requestMessage.Headers.Add("x-usertoken", Constants.X_USERTOKEN);
-            requestMessage.Headers.Add("x-mvc-host", Constants.X_MVCHOST);
-            //Send the request to the server
-            
-            HttpResponseMessage response = await client.SendAsync(requestMessage);
-            
-            string responseAsString = await response.Content.ReadAsStringAsync();
-            var lstPOCArticle = JsonConvert.DeserializeObject<List<POCArticle>>(responseAsString);
-            lstViewRest.ItemsSource = lstPOCArticle;
+            CallBackToRest();
 
             /*client.BaseAddress = new Uri("https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
 
@@ -69,10 +58,11 @@ namespace SchoolBundleMobile
             lstViewRest.ItemsSource = lstPOCArticle;
         }
 
-        private async void ArticleRefreshing()
+        void ArticleRefreshing(object sender, System.EventArgs e)
         {
             CallBackToRest();
             lstViewRest.EndRefresh();
         }
+
     }
 }

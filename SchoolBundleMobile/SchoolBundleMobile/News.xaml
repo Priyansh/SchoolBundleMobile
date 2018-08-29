@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SchoolBundleMobile.News">
+    <ContentView Padding="5">
+        <Frame OutlineColor="#CCCCCC"
+               Padding="10">
+            <StackLayout>
+                <Label Text = "{Binding Title}" FontAttributes = "None" FontSize = "16" FontFamily = "Segoe UI" TextColor = "#0073AE" />
+                <Label Text = "{Binding FormattedDate}" FontAttributes = "Bold" FontSize = "11" FontFamily = "Segoe UI" TextColor = "#555555" />
+                <Image Source = "{Binding ImageUrl}" WidthRequest = "335" HeightRequest = "224"/>
+            </StackLayout>
+         </Frame>
+    </ContentView>
+</ContentPage>
