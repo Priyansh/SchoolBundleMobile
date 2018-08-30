@@ -29,6 +29,7 @@ namespace SchoolBundleMobile
         {
             base.OnAppearing();
             CallBackToRest();
+            NavigationPage.SetHasBackButton(this, false);
 
             /*client.BaseAddress = new Uri("https://ci-webapi-m-poc.azurewebsites.net/api/pocarticle");
 
